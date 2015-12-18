@@ -10,6 +10,6 @@ RUN apt-get update -y && apt-get install -y \
 RUN a2enmod ssl
 RUN git clone https://github.com/letsencrypt/letsencrypt
 WORKDIR letsencrypt
-RUN echo Usage: docker run -it --net=host fxa-letsencrypt /bin/bash
-RUN echo Then do: apache2ctl start and ./letsencrypt-auto --apache
+RUN echo Usage: docker run -it --net=host fxa-letsencrypt
 RUN echo Then exit, check docker ps -a, and run the container again, with the -d options
+CMD apache2ctl start && ./letsencrypt-auto --apache
